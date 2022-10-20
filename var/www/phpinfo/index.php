@@ -1,7 +1,9 @@
 <?php
+	$version = phpversion();
+
 	print '	<html>
 	<head>
-		<title>phpinfo</title>
+		<title>phpinfo &bull;'.$version.'</title>
 	</head>
 	<div style="display:flex">
 		<div style="margin:auto">

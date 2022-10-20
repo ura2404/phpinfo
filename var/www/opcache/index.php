@@ -10,7 +10,7 @@
  * @version    1.0.0
  */
 
-if (version_compare(PHP_VERSION, '8.0.0') < 0) require_once __DIR__.'/lib/random_compat/lib/random.php';
+if (version_compare(PHP_VERSION, '7.0.0') < 0) require_once __DIR__.'/lib/random_compat/lib/random.php';
 
 use OpCacheGUI\Auth\Ip;
 use OpCacheGUI\Auth\User;

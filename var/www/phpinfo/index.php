@@ -3,7 +3,7 @@
 
 	print '	<html>
 	<head>
-		<title>phpinfo &bull;'.$version.'</title>
+		<title>phpinfo &bull; '.$version.'</title>
 	</head>
 	<div style="display:flex">
 		<div style="margin:auto">

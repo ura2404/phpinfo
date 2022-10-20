@@ -22,13 +22,13 @@
     }
     for ($i=0; $i < $count; $i++) {
         foreach ($mathFunctions as $function) {
-	$r = call_user_func_array($function, array($i));
+            $r = call_user_func_array($function, array($i));
         }
     }
     return number_format(microtime(true) - $time_start, 3);
     }
-    
-    
+
+
     function test_StringManipulation($count = 130000) {
     $time_start = microtime(true);
     $stringFunctions = array("addslashes", "chunk_split", "metaphone", "strip_tags", "md5", "sha1", "strtoupper", "strtolower", "strrev", "strlen", "soundex", "ord");
@@ -38,7 +38,7 @@
     $string = "the quick brown fox jumps over the lazy dog";
     for ($i=0; $i < $count; $i++) {
         foreach ($stringFunctions as $function) {
-	$r = call_user_func_array($function, array($string));
+            $r = call_user_func_array($function, array($string));
         }
     }
     return number_format(microtime(true) - $time_start, 3);
@@ -52,7 +52,7 @@
     return number_format(microtime(true) - $time_start, 3);
     }
 
-    
+
     function test_IfElse($count = 9000000) {
     $time_start = microtime(true);
     for ($i=0; $i < $count; $i++) {
@@ -63,8 +63,8 @@
     }
     return number_format(microtime(true) - $time_start, 3);
     }	
-    
-    
+
+    echo '<html><head><title>Bech &bull; '.phpversion().'</title></head><body>';
     $total = 0;
     $functions = get_defined_functions();
     $line = str_pad("-",38,"-");
@@ -76,5 +76,6 @@
         }
     }
     echo str_pad("-", 38, "-") . "\n" . str_pad("Total time:", 25) . " : " . $total ." sec.</pre>";
-    
+    echo '</body></head>';
+
 ?>

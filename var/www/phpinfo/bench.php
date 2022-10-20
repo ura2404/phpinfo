@@ -64,7 +64,7 @@
     return number_format(microtime(true) - $time_start, 3);
     }	
 
-    echo '<html><head><title>Bech &bull; '.phpversion().'</title></head><body>';
+    echo '<html><head><title>bech &bull; '.phpversion().'</title></head><body>';
     $total = 0;
     $functions = get_defined_functions();
     $line = str_pad("-",38,"-");

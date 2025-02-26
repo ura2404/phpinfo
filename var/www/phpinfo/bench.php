@@ -16,7 +16,7 @@
 
     function test_Math($count = 140000) {
     $time_start = microtime(true);
-    $mathFunctions = array("abs", "acos", "asin", "atan", "bindec", "floor", "exp", "sin", "tan", "pi", "is_finite", "is_nan", "sqrt");
+    $mathFunctions = array("abs", "acos", "asin", "atan", "bindec", "floor", "exp", "sin", "tan", /*"pi",*/ "is_finite", "is_nan", "sqrt");
     foreach ($mathFunctions as $key => $function) {
         if (!function_exists($function)) unset($mathFunctions[$key]);
     }

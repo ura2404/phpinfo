@@ -1,15 +1,40 @@
 <?php
+//echo PHP_MAJOR_VERSION.'-'.preg_match( '/\/v\d+/', $_SERVER['REQUEST_URI'] );
+//echo '<pre>'.print_r($_SERVER,1).'</pre>';
+
 $version = phpversion();
+$uri = preg_replace('/\/v\d+/', '', $_SERVER['REQUEST_URI']);
+
+if( preg_match( '/\/v\d+/', $_SERVER['REQUEST_URI'] )){
+    switch( PHP_MAJOR_VERSION ){
+        case 5 : $class5='active'; break;
+        case 7 : $class7='active'; break;
+        case 8 : $class8='active'; break;
+        default: $classd='active';
+    }
+}
+else $classd='active';
 
 print '	<html>
 <head>
-    <title>phpinfo &bull; '.$version.'</title>
+    <title>phpinfo &bull; v'.PHP_MAJOR_VERSION.'</title>
+    <style>
+        .vlink {color:darkslategray;padding:2px 10px;margin:0}
+        .active {background-color:#ccf;;color:black}
+        a:link {color:darkslategray !important}
+    </style>
 </head>
-    <div style="display:flex;margin-top:20px;">
-        <div style="margin:auto">
-            <a href="'. str_replace('phpinfo', 'opcache', $_SERVER['REQUEST_URI']) .'">Opcache</a>
+    <div style="display:flex;margin:20px auto 0 auto;width:934px;">
+        <div style="margin-right:auto;color:gray">
+            <a class="vlink ' .$classd. '" href="' .$uri. '">Def</a>
+            <a class="vlink ' .$class5. '" href="' .$uri. 'v5">v5</a>
+            <a class="vlink ' .$class7. '" href="' .$uri. 'v7">v7</a>
+            <a class="vlink ' .$class8. '" href="' .$uri. 'v8">v8</a>
+        </div>
+        <div style="margin-left:auto">
+            <a class="vlink" href="'. str_replace('phpinfo', 'opcache', $_SERVER['REQUEST_URI']) .'">Opcache</a>
             <span style="color:lightgrey">|</span>
-            <a href="bench.php">Bench</a>
+            <a class="vlink" href="bench.php">Bench</a>
         </div>
     </div>
     <hr/>

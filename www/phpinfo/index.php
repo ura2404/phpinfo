@@ -2,8 +2,12 @@
 //echo PHP_MAJOR_VERSION.'-'.preg_match( '/\/v\d+/', $_SERVER['REQUEST_URI'] );
 //echo '<pre>'.print_r($_SERVER,1).'</pre>';
 
+//var_dump(opcache_get_status()['jit'] );
+
 $version = phpversion();
 $uri = preg_replace('/\/v\d+/', '', $_SERVER['REQUEST_URI']);
+
+$classd = $class5 = $class7 = $class8 = $classd = '';
 
 if( preg_match( '/\/v\d+/', $_SERVER['REQUEST_URI'] )){
     switch( PHP_MAJOR_VERSION ){
@@ -31,9 +35,16 @@ print '	<html>
             <a class="vlink ' .$class7. '" href="' .$uri. 'v7">v7</a>
             <a class="vlink ' .$class8. '" href="' .$uri. 'v8">v8</a>
         </div>
-        <div style="margin-left:auto">
-            <a class="vlink" href="'. str_replace('phpinfo', 'opcache', $_SERVER['REQUEST_URI']) .'">Opcache</a>
-            <span style="color:lightgrey">|</span>
+        <div style="margin-left:auto">';
+            if( PHP_MAJOR_VERSION >= 8 ) print '
+                <a class="vlink" href="'. str_replace('phpinfo', 'opcache1', $_SERVER['REQUEST_URI']) .'">Opcache1</a>
+                <span style="color:lightgrey">|</span>
+                <a class="vlink" href="'. str_replace('phpinfo', 'opcache2', $_SERVER['REQUEST_URI']) .'">Opcache2</a>
+                <span style="color:lightgrey">|</span>';
+            else print '
+                <a class="vlink" href="'. str_replace('phpinfo', 'opcache1', $_SERVER['REQUEST_URI']) .'">Opcache</a>
+                <span style="color:lightgrey">|</span>';
+            print '
             <a class="vlink" href="bench.php">Bench</a>
         </div>
     </div>
